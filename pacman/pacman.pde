@@ -28,7 +28,7 @@ int yPos = 200;
 void draw(){
   if(b){
     val += 1;
-    if(val == 10){
+    if(val == 20){
       b= false;
     }
   }
@@ -40,19 +40,19 @@ void draw(){
   }
   background(0);
   if(header == 0){
-    arc(xPos,yPos,25 ,25,PI * (10 - val)/80, PI + PI *(70 + val)/80);
+    arc(xPos,yPos,25 ,25,PI * (20 - val)/80, PI + PI *(60 + val)/80);
     xPos = xPos + 1;
   }
   if(header == 1){
-    arc(xPos,yPos,25 ,25, PI * (50 - val)/80 - PI,PI *(30 + val)/80);
+    arc(xPos,yPos,25 ,25, PI * (140 - val)/80, 2 * PI + PI *(100 + val)/80);
     yPos = yPos - 1;
   }
   if(header == 2){
-    arc(xPos,yPos,25 ,25,PI * (10 - val)/80 - PI, PI *(70 + val)/80);
+    arc(xPos,yPos,25 ,25,PI * (20 - val)/80 - PI, PI *(60 + val)/80);
     xPos = xPos - 1;
   }
   if(header == 3){
-    arc(xPos,yPos,25 ,25,PI * (50 - val)/80, 2 * PI + PI *(30 + val)/80);
+    arc(xPos,yPos,25 ,25,PI * (60 - val)/80, 2 * PI + PI *(20 + val)/80);
     yPos = yPos + 1;
   }
 }
