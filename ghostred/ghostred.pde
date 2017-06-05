@@ -1,5 +1,8 @@
 int x = 0;
+int eyex = 0;
+int eyey = 0;
 int c = color(255,0,0);
+int header = 1;
  
 void setup() {
   size(200, 200);
@@ -38,7 +41,23 @@ void draw() {
   rect(70+x, 20, 5, 25);
   rect(75+x, 25, 5, 15);
   //pupils
+  if(header == 0){
+    eyex = 5;
+    eyey = 0;
+  }
+  if(header == 1){
+    eyex = 0;
+    eyey = 5;
+  }
+  if(header == 2){
+    eyex = -5;
+    eyey = 0;
+  }
+  if(header == 3){
+    eyex = 0;
+    eyey = -5;
+  }
   fill(0, 0, 255);
-  rect(30+x, 30, 10, 10);
-  rect(60+x, 30, 10, 10);
+  rect(35+ eyex, 30 - eyey, 10, 10);
+  rect(65 + eyex, 30 - eyey, 10, 10);
 }
