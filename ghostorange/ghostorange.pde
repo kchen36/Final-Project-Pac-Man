@@ -1,5 +1,5 @@
   int x = 0;
-  int y =0;
+  int y = 0;
   int eyex = 0;
   int eyey = 0;
   int header = 1;
@@ -11,7 +11,7 @@
   }
      
   void draw() {
-    fill(0, 225, 255);
+    fill(255, 165, 0);
     background(255);
        
     rect(25+x,35-y,5,45);
