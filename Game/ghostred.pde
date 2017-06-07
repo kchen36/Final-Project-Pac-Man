@@ -1,20 +1,22 @@
-  int x = 0;
-  int y = 0;
-  int eyex = 0;
-  int eyey = 0;
-  int header = 1;
+public class ghostred {
+int x = 0;
+int y = 0;
+int eyex = 0;
+int eyey = 0;
+int c = color(255,0,0);
+int header = 1;
+ 
+void setup() {
+  size(200, 200);
+  noStroke();
    
-  void setup() {
-    size(200, 200);
-    noStroke();
-     
-  }
-     
-  void draw() {
-    fill(255, 165, 0);
-    background(255);
-       
-        rect(25/5+x,35/5-y,5/5,45/5);
+}
+ 
+void draw() {
+  fill(255,0,0);
+  background(255);
+   
+    rect(25/5+x,35/5-y,5/5,45/5);
     rect(30/5+x,20/5-y,5/5,65/5);
     rect(35/5+x,15/5-y,5/5,70/5);
     rect(40/5+x,10/5-y,5,70/5);
@@ -61,3 +63,4 @@
     rect(35/5+ eyex +x, 30/5 - eyey - y, 10/5, 10/5);
     rect(65/5 + eyex + x, 30/5 - eyey - y, 10/5, 10/5);
   }
+}

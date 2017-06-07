@@ -1,5 +1,6 @@
+public class ghostpink{
   int x = 0;
-  int y =0;
+  int y = 0;
   int eyex = 0;
   int eyey = 0;
   int header = 1;
@@ -11,7 +12,7 @@
   }
      
   void draw() {
-    fill(0, 225, 255);
+    fill(255, 192, 203);
     background(255);
        
         rect(25/5+x,35/5-y,5/5,45/5);
@@ -61,3 +62,4 @@
     rect(35/5+ eyex +x, 30/5 - eyey - y, 10/5, 10/5);
     rect(65/5 + eyex + x, 30/5 - eyey - y, 10/5, 10/5);
   }
+}

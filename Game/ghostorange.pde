@@ -1,3 +1,4 @@
+public class ghostorange{
   int x = 0;
   int y = 0;
   int eyex = 0;
@@ -11,7 +12,7 @@
   }
      
   void draw() {
-    fill(255, 192, 203);
+    fill(255, 165, 0);
     background(255);
        
         rect(25/5+x,35/5-y,5/5,45/5);
@@ -61,3 +62,4 @@
     rect(35/5+ eyex +x, 30/5 - eyey - y, 10/5, 10/5);
     rect(65/5 + eyex + x, 30/5 - eyey - y, 10/5, 10/5);
   }
+}
