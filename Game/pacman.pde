@@ -1,5 +1,5 @@
-public class Pacman{
-  Pacman(int x, int y){
+public class pacman{
+  pacman(int x, int y){
      xPos = x;
      yPos = y;
   }
@@ -30,7 +30,7 @@ boolean b = true;
 int val = 0;
 int xPos = 200;
 int yPos = 200; 
-void draw(){
+void go(){
   if(b){
     val += 1;
     if(val == 20){
@@ -43,7 +43,6 @@ void draw(){
       b = true;
     }
   }
-  background(0);
   if(header == 0){
     arc(xPos,yPos,25 ,25,PI * (20 - val)/80, PI + PI *(60 + val)/80);
     xPos = xPos + 1;

@@ -57,4 +57,6 @@ void setup(){
       }
     }
   }
+  pacman pac = new pacman(300, 300);
+  pac.go();
 }
