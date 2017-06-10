@@ -1,11 +1,6 @@
-public class pacman{
-  
-  pacman(int x, int y){
-     xPos = x;
-     yPos = y;
-  }
 
 void setup(){
+  size (400,400);
   smooth();
   background(0);
   noStroke();
@@ -32,9 +27,8 @@ int val = 0;
 int xPos = 200;
 int yPos = 200; 
 
-
- void draw(){
-
+void draw(){
+  background(0);
   if(b){
     val += 1;
     if(val == 20){
@@ -63,5 +57,4 @@ int yPos = 200;
     arc(xPos,yPos,25 ,25,PI * (60 - val)/80, 2 * PI + PI *(20 + val)/80);
     yPos = yPos + 1;
   }
-}
 }

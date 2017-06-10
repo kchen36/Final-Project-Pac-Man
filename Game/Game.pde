@@ -1,6 +1,8 @@
 import java.util.*;
 import java.io.*;
 
+  pacman pac = new pacman(300, 477);
+
   String[] Maze = {"############################",
                    "#............##............#",
                    "#.####.#####.##.#####.####.#",
@@ -33,6 +35,7 @@ import java.io.*;
                    "#..........................#",
                    "############################"};
 
+
 void setup(){
   size(1000, 1000);
   background(0);
@@ -57,6 +60,16 @@ void setup(){
       }
     }
   }
-  pacman pac = new pacman(300, 300);
-  pac.go();
+
 }
+
+  void draw(){
+     fill(255,255,0);
+     noStroke();
+     pac.draw();
+  }
+  
+  void keyPressed(){
+    pac.keyPressed();
+  }
+  

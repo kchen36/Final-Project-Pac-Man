@@ -2,7 +2,7 @@ import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class MazeSolver{
+/*public class MazeSolver{
     private Maze board;
     Frontier f;
     private boolean animate;
@@ -136,4 +136,4 @@ public class MazeSolver{
 	ms.solve(1);
 	System.out.println(ms);
     }
-}
+}*/
