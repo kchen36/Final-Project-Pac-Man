@@ -2,14 +2,12 @@ import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-
 public class MazeSolver{
     private String[] board;
-
     Frontier f;
     private int row, col;
     Location e;
-    Location start;
+Location start
     private boolean astar;
 
     public MazeSolver(String[] b, Location end, Location s){
@@ -21,97 +19,100 @@ public class MazeSolver{
     }
     public void solve(){
        f = new FrontierPriorityQueue();
-       f.add(start);
 	go();
 	
     }
-    private void set(int r, int c, char a){
-	String s = board[r];
-	board[r] = s.substring(0,c) + a + s.substring(c + 1);
-    }
     private boolean inBound(int r, int c){
 	if(r >= 1 && c >= 1 && r < row - 1 && c < col - 1){
-	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*' || board[r].charAt(c) ==' ';
+	    return board.get(r,c) == ' ';
 	}
 	return false;
     }
     public String toString(){
-	ans = ""
-	for(int x = 0; x < board.length; x ++){
-	    for(int y = 0; x < board[x].length();y ++){
-		ans += board[r].charAt(c);
-	    }
-	    ans+= "\n";
+	if (animate) {
+	    return board.toString(25);
 	}
-	return ans;
+	else return board.toString();
     }
     private void go(){
 	int er = e.getr();
 	int ec = e.getc();
+	System.out.println(f.getSize());
 	while(f.getSize() != 0){
 	    Location l = f.next();
 	    int r = l.getr();
 	    int c = l.getc();
-	    set(r,c,'-');
+	    System.out.println(r);
+	    board.set(r,c,'.');
 	    if(inBound(r - 1, c)){
 		if(r - 1 == er && c == ec){
-		    set(r - 1,c,'@');
+		    board.set(r - 1,c,'@');
 		    back(l);
 		    break;
 		}
 		else {
 		    int d = Math.abs(er - (r - 1)) + Math.abs(ec - c);
-		    set(r - 1,c,'?');
-		    Location n = new Location(r - 1,c,l,l.gets() + 1, d);
+		    board.set(r - 1,c,'?');
+		    Location n = new Location(r - 1,c,l,l.gets() + 1, d, astar);
 		    f.add(n);
 		}
 	    }
 	    if(inBound(r, c - 1)){
 		if(r == er && c - 1 == ec){
-		    set(r,c - 1,'@');
+		    board.set(r,c - 1,'@');
 		    back(l);
 		    break;
 		}
 		else {
 		    int d = Math.abs(er - r) + Math.abs(ec - (c - 1));
-		    set(r,c - 1,'?');
-		    Location n = new Location(r,c - 1,l,l.gets() + 1, d);
+		    board.set(r,c - 1,'?');
+		    Location n = new Location(r,c - 1,l,l.gets() + 1, d, astar);
 		    f.add(n);
 		}
 	    }
 	    if(inBound(r + 1, c)){
 		if(r + 1 == er && c == ec){
-		    set(r + 1,c,'@');
+		    board.set(r + 1,c,'@');
 		    back(l);
 		    break;
 		}
 		else {
 		    int d = Math.abs(er - (r + 1)) + Math.abs(ec - c);
-		    set(r + 1,c,'?');
-		    Location n = new Location(r + 1,c,l,l.gets() + 1, d);
+		    board.set(r + 1,c,'?');
+		    Location n = new Location(r + 1,c,l,l.gets() + 1, d, astar);
 		    f.add(n);
 		}
 	    }
 	    if(inBound(r, c + 1)){
 		if(r == er && c + 1 == ec){
-		    set(r,c + 1,'@');
+		    board.set(r,c + 1,'@');
 		    back(l);
 		    break;
 		}
 		else {
 		    int d = Math.abs(er - r) + Math.abs(ec - (c + 1));
-		    set(r,c + 1,'?');
-		    Location n = new Location(r,c + 1,l,l.gets() + 1, d);
+		    board.set(r,c + 1,'?');
+		    Location n = new Location(r,c + 1,l,l.gets() + 1, d, astar);
 		    f.add(n);
 		}
+	    }
+	    if(animate){
+		board.toString(25);
 	    }
 	} 
     }
     private void back(Location l){
 	if(l.prev() != null){
-	    set(l.getr(),l.getc(),'@');
+	    board.set(l.getr(),l.getc(),'@');
 	    back(l.prev());
 	}
-
+	if(animate){
+	    board.toString(25);
+	}
     }
-}*/
+    public static void main(String[] args){
+	MazeSolver ms = new MazeSolver("data4.txt");
+	ms.solve(1);
+	System.out.println(ms);
+    }
+}
