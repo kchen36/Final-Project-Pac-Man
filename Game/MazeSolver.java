@@ -29,7 +29,7 @@ public class MazeSolver{
     }
     private boolean inBound(int r, int c){
 	if(r >= 1 && c >= 1 && r < row - 1 && c < col - 1){
-	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*';
+	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*' || board[r].charAt(c) ==' ';
 	}
 	return false;
     }
@@ -50,8 +50,7 @@ public class MazeSolver{
 	    Location l = f.next();
 	    int r = l.getr();
 	    int c = l.getc();
-	    System.out.println(r);
-	    set(r,c,' ');
+	    set(r,c,'-');
 	    if(inBound(r - 1, c)){
 		if(r - 1 == er && c == ec){
 		    set(r - 1,c,'@');
@@ -104,9 +103,6 @@ public class MazeSolver{
 		    f.add(n);
 		}
 	    }
-	    if(animate){
-		board.toString(25);
-	    }
 	} 
     }
     private void back(Location l){
@@ -114,11 +110,6 @@ public class MazeSolver{
 	    set(l.getr(),l.getc(),'@');
 	    back(l.prev());
 	}
-	if(animate){
-	    board.toString(25);
-	}
-    }
-    public static void main(String[] args){
 
     }
 }
