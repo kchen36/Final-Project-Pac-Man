@@ -1,6 +1,8 @@
 import java.util.*;
 import java.io.*;
 
+  pacman pac = new pacman(500, 735);
+
   String[] Maze = {"############################",
                    "#............##............#",
                    "#.####.#####.##.#####.####.#",
@@ -33,6 +35,7 @@ import java.io.*;
                    "#..........................#",
                    "############################"};
 
+
 void setup(){
   size(1000, 1000);
   background(0);
@@ -43,20 +46,30 @@ void setup(){
       if (car == '.'){
         stroke(255);
         fill(255);
-        new Dot(row * 26 + 113,col * 26 + 113);
+        new Dot(row * 27 + 113,col * 27 + 113);
       }
       if (car == '#'){
         stroke(0, 150, 255);
         fill(0);
-        new Wall(row * 26 + 100, col * 26 + 100);
+        new Wall(row * 27 + 100, col * 27 + 100);
       }
       if (car == '*'){
         stroke(255);
         fill(255);
-        new PowerPellet(row * 26 + 113, col * 26 + 113);
+        new PowerPellet(row * 27 + 113, col * 27 + 113);
       }
     }
   }
-  pacman pac = new pacman(300, 300);
-  pac.go();
+  pac.setup();
 }
+
+  void draw(){
+     fill(255,255,0);
+     noStroke();
+     pac.draw();
+  }
+  
+  void keyPressed(){
+    pac.keyPressed();
+  }
+  

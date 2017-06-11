@@ -2,8 +2,10 @@ import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+
 public class MazeSolver{
     private String[] board;
+
     Frontier f;
     private int row, col;
     Location e;
@@ -112,4 +114,4 @@ public class MazeSolver{
 	}
 
     }
-}
+}*/
