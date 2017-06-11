@@ -23,7 +23,9 @@ public class MazeSolver{
        f = new FrontierPriorityQueue();
        f.add(start);
 	go();
-	
+    }
+    public String[] ans(){
+      return board;
     }
     private void set(int r, int c, char a){
 	String s = board[r];
@@ -55,7 +57,6 @@ public class MazeSolver{
 	    set(r,c,'-');
 	    if(inBound(r - 1, c)){
 		if(r - 1 == er && c == ec){
-		    set(r - 1,c,'@');
 		    back(l);
 		    break;
 		}
@@ -68,7 +69,6 @@ public class MazeSolver{
 	    }
 	    if(inBound(r, c - 1)){
 		if(r == er && c - 1 == ec){
-		    set(r,c - 1,'@');
 		    back(l);
 		    break;
 		}
@@ -81,7 +81,6 @@ public class MazeSolver{
 	    }
 	    if(inBound(r + 1, c)){
 		if(r + 1 == er && c == ec){
-		    set(r + 1,c,'@');
 		    back(l);
 		    break;
 		}
@@ -94,7 +93,6 @@ public class MazeSolver{
 	    }
 	    if(inBound(r, c + 1)){
 		if(r == er && c + 1 == ec){
-		    set(r,c + 1,'@');
 		    back(l);
 		    break;
 		}
