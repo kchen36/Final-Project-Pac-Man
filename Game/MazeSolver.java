@@ -6,7 +6,7 @@ import java.util.*;
 public class MazeSolver{
     private String[] board;
 
-    Frontier f;
+    FrontierPriorityQueue f;
     private int row, col;
     Location e;
     Location start;
@@ -36,10 +36,10 @@ public class MazeSolver{
 	return false;
     }
     public String toString(){
-	ans = ""
+	String ans = "";
 	for(int x = 0; x < board.length; x ++){
 	    for(int y = 0; x < board[x].length();y ++){
-		ans += board[r].charAt(c);
+		ans += board[x].charAt(y);
 	    }
 	    ans+= "\n";
 	}
@@ -114,4 +114,4 @@ public class MazeSolver{
 	}
 
     }
-}*/
+}
