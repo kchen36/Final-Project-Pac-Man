@@ -70,7 +70,7 @@ void keyPressed() {
     pacLayer.arc(xPos - 1,yPos,25 ,25,PI * (20 - val)/80, PI + PI *(60 + val)/80);
     pacLayer.fill(255,255,0);
     pacLayer.arc(xPos,yPos,25 ,25,PI * (20 - val)/80, PI + PI *(60 + val)/80);
-    if(maze[(yPos/26) + 1].charAt((xPos +22)/26 ) != '#'){
+    if(maze[(yPos-113)/27].charAt((xPos-113)/27 + 1) != '#'){
     xPos = xPos + 1;
     }
   }
@@ -79,17 +79,16 @@ void keyPressed() {
     pacLayer.arc(xPos,yPos + 1,25 ,25, PI * (140 - val)/80, 2 * PI + PI *(100 + val)/80);
     pacLayer.fill(255,255,0);
     pacLayer.arc(xPos,yPos,25 ,25, PI * (140 - val)/80, 2 * PI + PI *(100 + val)/80);
-    if(maze[(yPos)/26 + 1].charAt((xPos)/26 ) != '#'){
+    if(maze[(yPos-113)/27].charAt((xPos-113)/27) != '#'){
     yPos = yPos - 1;
     }
   }
   if(header == 2){
-    System.out.println(maze[yPos/26  + 1].charAt((xPos - 26)/26));
     pacLayer.fill(0);
     pacLayer.arc(xPos + 1,yPos,25 ,25,PI * (20 - val)/80 - PI, PI *(60 + val)/80);
     pacLayer.fill(255,255,0);
     pacLayer.arc(xPos,yPos,25 ,25,PI * (20 - val)/80 - PI, PI *(60 + val)/80);
-    if(maze[yPos/26 ].charAt((xPos - 26)/26) != '#'){
+    if(maze[(yPos-113)/27].charAt((xPos-113)/27) != '#'){
     xPos = xPos - 1;
     }
   }
@@ -98,7 +97,7 @@ void keyPressed() {
     pacLayer.arc(xPos,yPos - 1,25 ,25,PI * (60 - val)/80, 2 * PI + PI *(20 + val)/80);
     pacLayer.fill(255,255,0);
     pacLayer.arc(xPos,yPos,25 ,25,PI * (60 - val)/80, 2 * PI + PI *(20 + val)/80);
-    if(maze[(yPos + 25)/26 +1].charAt((xPos)/26) != '#'){
+    if(maze[(yPos-113)/27 +1].charAt((xPos-113)/27) != '#'){
     yPos = yPos + 1;
     }
   }
