@@ -5,11 +5,26 @@ int eyex = 0;
 int eyey = 0;
 int c = color(255,0,0);
 int header = 1;
- 
+MazeSolver a;
+String [] maze2;
+String[] maze;
+ public ghostred(int xPos, int yPos, String[] m){
+   x = xPos;
+   y = yPos;
+   maze = m;
+   maze2 = m;
+ }
+ public void getpath(Location e){
+   maze2=maze;
+   int d = Math.abs(e.getr() -y/27) + Math.abs(e.getc() - x/27);
+   Location s = new Location(y/27,x/27,null,0,d);
+   a = new MazeSolver(maze2,e,s);
+   a.solve();
+   maze2 = a.ans();
+ }
 void setup() {
   size(200, 200);
   noStroke();
-   
 }
  
 void draw() {
@@ -62,5 +77,14 @@ void draw() {
     fill(0, 0, 255);
     rect(35/5+ eyex +x, 30/5 + eyey + y, 10/5, 10/5);
     rect(65/5 + eyex + x, 30/5 + eyey + y, 10/5, 10/5);
+    if(maze2[y/27 - 1].charAt(x/27) == '@'){
+      y -=1;
+    }else if(maze2[y/27 + 1].charAt(x/27) == '@'){
+      y+= 1;
+    }else if(maze2[y/27].charAt(x/27 + 1) == '@'){
+      x+= 1;
+    }else if(maze2[y/27].charAt(x/27 - 1) == '@'){
+      y-= 1;
+    }
   }
 }

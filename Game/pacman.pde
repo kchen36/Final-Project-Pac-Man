@@ -93,12 +93,12 @@ void keyPressed() {
     xPos = xPos - 1;
     }
   }
-  if(header == 3 )){
+  if(header == 3 ){
     pacLayer.fill(0);
     pacLayer.arc(xPos,yPos - 1,25 ,25,PI * (60 - val)/80, 2 * PI + PI *(20 + val)/80);
     pacLayer.fill(255,255,0);
     pacLayer.arc(xPos,yPos,25 ,25,PI * (60 - val)/80, 2 * PI + PI *(20 + val)/80);
-    if(maze[(yPos + 25)/26 +1].charAt((xPos)/26 != '#'){
+    if(maze[(yPos + 25)/26 +1].charAt((xPos)/26) != '#'){
     yPos = yPos + 1;
     }
   }

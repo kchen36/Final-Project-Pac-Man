@@ -4,13 +4,35 @@ public class ghostorange{
   int eyex = 0;
   int eyey = 0;
   int header = 1;
-   
-  void setup() {
-    size(200, 200);
-    noStroke();
-     
-  }
-     
+  MazeSolver a;
+String [] maze2;
+String[] maze;
+ public ghostorange(int xPos, int yPos, String[] m){
+   x = xPos;
+   y = yPos;
+   maze = m;
+   maze2 = m;
+ }
+ public void getpath(Location e){
+   maze2 = maze;
+   int d = Math.abs(e.getr() -y/27) + Math.abs(e.getc() - x/27);
+   if(d < 8){
+     d = Math.abs(30 -y/27) + Math.abs(27 - x/27);
+     Location s = new Location(y/27,x/27,null,0,d);
+     Location end = new Location (30,27,null,0,0);
+     a = new MazeSolver(maze2,end,s);
+   }else{
+     Location s = new Location(y/27,x/27,null,0,d);
+     a = new MazeSolver(maze2,e,s);
+   }
+   a.solve();
+   maze2 = a.ans();
+ }
+void setup() {
+  size(200, 200);
+  noStroke();
+}
+ 
   void draw() {
     fill(255, 165, 0);
     background(255);

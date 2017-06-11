@@ -4,13 +4,28 @@ public class ghostblue{
   int eyex = 0;
   int eyey = 0;
   int header = 1;
+  MazeSolver a;
+String [] maze2;
+String[] maze;
+ public ghostblue(int xPos, int yPos, String[] m){
+   x = xPos;
+   y = yPos;
+   maze = m;
+   maze2 = m;
+ }
+ public void getpath(Location e){
+   maze2 = maze;
+   int d = Math.abs(e.getr() -y/27) + Math.abs(e.getc() - x/27); 
+   Location s = new Location(y/27,x/27,null,0,d);
+   a = new MazeSolver(maze2,e,s);
+   a.solve();
+   maze2 = a.ans();
+ }
+void setup() {
+  size(200, 200);
+  noStroke();
+}
    
-  void setup() {
-    size(200, 200);
-    noStroke();
-     
-  }
-     
   void draw() {
     fill(0, 225, 255);
     background(255);
