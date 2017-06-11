@@ -76,5 +76,14 @@ void setup() {
     fill(0, 0, 255);
     rect(35/5+ eyex +x, 30/5 + eyey + y, 10/5, 10/5);
     rect(65/5 + eyex + x, 30/5 + eyey + y, 10/5, 10/5);
+    if(maze2[y/27 - 1].charAt(x/27) == '@'){
+      y -=1;
+    }else if(maze2[y/27 + 1].charAt(x/27) == '@'){
+      y+= 1;
+    }else if(maze2[y/27].charAt(x/27 + 1) == '@'){
+      x+= 1;
+    }else if(maze2[y/27].charAt(x/27 - 1) == '@'){
+      y-= 1;
+    }
   }
 }
