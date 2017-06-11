@@ -65,9 +65,6 @@ void setup(){
 }
 
   void draw(){
-     fill(255,255,0);
-     noStroke();
-     pac.draw();
      if (copy[(pac.yPos-113)/27].charAt((pac.xPos-113)/27) == '.'){
        copy[(pac.yPos-113)/27] = copy[(pac.yPos-113)/27].substring(0, (pac.xPos-113)/27) + "_" + copy[(pac.yPos-113)/27].substring((pac.xPos-113)/27 +1);
      }
@@ -96,6 +93,9 @@ void setup(){
       }
   }
   }
+     fill(255,255,0);
+     noStroke();
+     pac.draw();
   }
   
   void keyPressed(){
