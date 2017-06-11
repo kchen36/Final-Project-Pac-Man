@@ -60,7 +60,7 @@ void setup(){
       }
     }
   }
-
+  pac.setup();
 }
 
   void draw(){
