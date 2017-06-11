@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-  pacman pac = new pacman(300, 477);
+  pacman pac = new pacman(500, 735);
 
   String[] Maze = {"############################",
                    "#............##............#",
@@ -46,17 +46,17 @@ void setup(){
       if (car == '.'){
         stroke(255);
         fill(255);
-        new Dot(row * 26 + 113,col * 26 + 113);
+        new Dot(row * 27 + 113,col * 27 + 113);
       }
       if (car == '#'){
         stroke(0, 150, 255);
         fill(0);
-        new Wall(row * 26 + 100, col * 26 + 100);
+        new Wall(row * 27 + 100, col * 27 + 100);
       }
       if (car == '*'){
         stroke(255);
         fill(255);
-        new PowerPellet(row * 26 + 113, col * 26 + 113);
+        new PowerPellet(row * 27 + 113, col * 27 + 113);
       }
     }
   }
