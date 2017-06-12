@@ -163,7 +163,6 @@ void setup(){
      
 
      Blinky.draw(counter);
-     Blinky.draw();
      Pinky.draw();
      Inky.draw();
      Clyde.draw();

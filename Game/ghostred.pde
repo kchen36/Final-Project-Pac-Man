@@ -87,7 +87,6 @@ void draw(int counter) {
     red.fill(0, 0, 255);
     red.rect(-4+ eyex +x, -2 + eyey + y, 2, 2);
     red.rect(2 + eyex + x, -2 + eyey + y, 2, 2);
-<<<<<<< HEAD
     if(counter % 9 == 0){
     if(maze2[(y-113)/27 - 1].charAt((x-113)/27) == '@'){
       red.fill(0);

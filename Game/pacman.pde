@@ -80,7 +80,7 @@ void keyPressed() {
     pacLayer.arc(xPos,yPos + 3,25 ,25, PI * (140 - val)/80, 2 * PI + PI *(100 + val)/80);
     pacLayer.fill(255,255,0);
     pacLayer.arc(xPos,yPos,25 ,25, PI * (140 - val)/80, 2 * PI + PI *(100 + val)/80);
-    if(maze[(yPos-113 -1)/27].charAt((xPos-113)/27) != '#' && xPos% 27 < 9){
+    if(maze[(yPos-113 -3)/27].charAt((xPos-113)/27) != '#' && xPos% 27 < 9){
     yPos = yPos - 3;
     }
   }
