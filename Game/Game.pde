@@ -106,11 +106,7 @@ void setup(){
   Inky.setup();
   Clyde.setup();
 }
-<<<<<<< HEAD
  int counter =0;
-=======
- 
->>>>>>> origin/branch
   void draw(){
      stroke(0);
      fill(0);
@@ -163,17 +159,11 @@ void setup(){
        Location e = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
        if (counter % 9 == 0){
        Blinky.getpath(e);
-<<<<<<< HEAD
        }
      
 
      Blinky.draw(counter);
-=======
-
-     
-
      Blinky.draw();
->>>>>>> origin/branch
      Pinky.draw();
      Inky.draw();
      Clyde.draw();
