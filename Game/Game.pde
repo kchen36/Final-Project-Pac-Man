@@ -171,7 +171,7 @@ void setup(){
      fill(255);
      textSize(32);
      text("Score:" + Integer.toString(score), 600, 80);
-     if ((Math.abs(((pac.xPos - 113) / 27) - ((Blinky.x - 113) / 27))) == 1 && (Math.abs(((pac.yPos - 113) / 27) - ((Blinky.y - 113) / 27))) == 1){
+     if ((Math.abs(((pac.xPos - 113) / 27) - ((Blinky.x - 113) / 27))) == 0 && (Math.abs(((pac.yPos - 113) / 27) - ((Blinky.y - 113) / 27))) == 0){
        GameOver();
        noLoop();
      }
