@@ -34,8 +34,8 @@ PGraphics red;
 void setup() {
   red = createGraphics(1000,1000);
 }
- 
-void draw() {
+ int direction= 0;
+void draw(int counter) {
   red.beginDraw();
   red.background(0);
   red.clear();
@@ -87,22 +87,48 @@ void draw() {
     red.fill(0, 0, 255);
     red.rect(-4+ eyex +x, -2 + eyey + y, 2, 2);
     red.rect(2 + eyex + x, -2 + eyey + y, 2, 2);
+<<<<<<< HEAD
+    if(counter % 9 == 0){
     if(maze2[(y-113)/27 - 1].charAt((x-113)/27) == '@'){
       red.fill(0);
       red.rect(x - 6, y + 10, 14, 17);
       y -=3;
+      direction = 1;
     }else if(maze2[(y-113)/27 + 1].charAt((x-113)/27) == '@'){
       red.fill(0);
       red.rect(x - 6, y - 23, 14, 17);
       y+= 3;
+      direction = 3;
     }else if(maze2[(y-113)/27].charAt((x-113)/27 + 1) == '@'){
       red.fill(0);
       red.rect(x - 19, y - 7, 14, 17);
       x+= 3;
+      direction = 0;
     }else if(maze2[(y-113)/27].charAt((x-113)/27 - 1) == '@'){
       red.fill(0);
       red.rect(x + 6, y - 7, 14, 17);
       x-= 3;
+      direction = 2;
+    }
+    }
+    else if (direction == 0){
+      red.fill(0);
+      red.rect(x - 19, y - 7, 14, 17);
+      x+= 3;
+    }
+    else if(direction == 1){
+      red.fill(0);
+      red.rect(x - 6, y + 10, 14, 17);
+      y -=3;
+    }
+    else if(direction == 2){
+      red.fill(0);
+      red.rect(x + 6, y - 7, 14, 17);
+      x-= 3;
+    }else if(direction == 3){
+      red.fill(0);
+      red.rect(x - 6, y - 23, 14, 17);
+      y +=3;
     }
     red.endDraw();
     image(red, 0, 0);

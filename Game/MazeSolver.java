@@ -55,9 +55,6 @@ public class MazeSolver{
 	    int r = l.getr();
 	    int c = l.getc();
 	    set(r,c,'a');
-    for(int x = 0; x < 31;x ++){
-      System.out.println(board[x]);
-    }
 	    if(inBound(r - 1, c)){
 		if(r - 1 == er && c == ec){
         set(r-1,c,'@');
