@@ -37,6 +37,10 @@ import java.io.*;
 String[] copy = Maze;
 ghostred red = new ghostred(477,735,Maze);
 pacman pac = new pacman(500, 735,Maze);
+ghostred Blinky = new ghostred(425, 400,Maze);
+ghostpink Pinky = new ghostpink(450, 400, Maze);
+ghostblue Inky = new ghostblue(475, 400, Maze);
+ghostorange Clyde = new ghostorange(500, 400, Maze);
 
 void setup(){
   size(1000, 1000);
@@ -63,6 +67,10 @@ void setup(){
     }
   }
   pac.setup();
+  Blinky.setup();
+  Pinky.setup();
+  Inky.setup();
+  Clyde.setup();
 }
 
   void draw(){
@@ -97,6 +105,10 @@ void setup(){
      fill(255,255,0);
      noStroke();
      pac.draw();
+     Blinky.draw();
+     Pinky.draw();
+     Inky.draw();
+     Clyde.draw();
   }
   
   void keyPressed(){

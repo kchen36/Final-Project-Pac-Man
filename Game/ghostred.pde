@@ -8,6 +8,7 @@ int header = 1;
 MazeSolver a;
 String [] maze2;
 String[] maze;
+PGraphics red;
  public ghostred(int xPos, int yPos, String[] m){
    x = xPos;
    y = yPos;
@@ -23,40 +24,41 @@ String[] maze;
    maze2 = a.ans();
  }
 void setup() {
-  size(200, 200);
-  noStroke();
+  red = createGraphics(1000,1000);
 }
  
 void draw() {
-  fill(255,0,0);
-  background(255);
-   
-    rect(25/5+x,35/5+y,5/5,45/5);
-    rect(30/5+x,20/5+y,5/5,65/5);
-    rect(35/5+x,15/5+y,5/5,70/5);
-    rect(40/5+x,10/5-+y,5,70/5);
-    rect(45/5+x,10/5+y,5/5,65/5);
-    rect(50/5+x,5/5+y,5/5,75/5);
-    rect(55/5+x,5/5+y,5/5,80/5);
-    rect(60/5+x,5/5+y,5/5,80/5);
-    rect(65/5+x,5/5+y,5/5,75/5);
-    rect(70/5+x,10/5+y,5/5,65/5);
-    rect(75/5+x,10/5+y,5/5,70/5);
-    rect(80/5+x,15/5+y,5/5,70/5);
-    rect(85/5+x,20/5+y,5/5,65/5);
-    rect(90/5+x,35/5+y,5/5,45/5);
+  red.beginDraw();
+  red.background(0);
+  red.clear();
+  red.noStroke();
+  red.fill(255,0,0);
+    red.rect(25/5+x,35/5+y,5/5,45/5);
+    red.rect(30/5+x,20/5+y,5/5,65/5);
+    red.rect(35/5+x,15/5+y,5/5,70/5);
+    red.rect(40/5+x,10/5+y,5,70/5);
+    red.rect(45/5+x,10/5+y,5/5,65/5);
+    red.rect(50/5+x,5/5+y,5/5,75/5);
+    red.rect(55/5+x,5/5+y,5/5,80/5);
+    red.rect(60/5+x,5/5+y,5/5,80/5);
+    red.rect(65/5+x,5/5+y,5/5,75/5);
+    red.rect(70/5+x,10/5+y,5/5,65/5);
+    red.rect(75/5+x,10/5+y,5/5,70/5);
+    red.rect(80/5+x,15/5+y,5/5,70/5);
+    red.rect(85/5+x,20/5+y,5/5,65/5);
+    red.rect(90/5+x,35/5+y,5/5,45/5);
        
     //left eye
-    fill(255);
-    rect(30/5+x, 25/5-y, 5/5, 15/5);
-    rect(35/5+x, 20/5-y, 5/5, 25/5);
-    rect(40/5+x, 20/5-y, 5/5, 25/5);
-    rect(45/5+x, 25/5-y, 5/5, 15/5);
+    red.fill(255);
+    red.rect(30/5+x, 25/5+y, 5/5, 15/5);
+    red.rect(35/5+x, 20/5+y, 5/5, 25/5);
+    red.rect(40/5+x, 20/5+y, 5/5, 25/5);
+    red.rect(45/5+x, 25/5+y, 5/5, 15/5);
     //right eye
-    rect(60/5+x, 25/5-y, 5/5, 15/5);
-    rect(65/5+x, 20/5-y, 5/5, 25/5);
-    rect(70/5+x, 20/5-y, 5/5, 25/5);
-    rect(75/5+x, 25/5-y, 5/5, 15/5);
+    red.rect(60/5+x, 25/5+y, 5/5, 15/5);
+    red.rect(65/5+x, 20/5+y, 5/5, 25/5);
+    red.rect(70/5+x, 20/5+y, 5/5, 25/5);
+    red.rect(75/5+x, 25/5+y, 5/5, 15/5);
     //pupils
     if(header == 0){
       eyex = 1;
@@ -74,9 +76,9 @@ void draw() {
       eyex = 0;
       eyey = 1;
     }
-    fill(0, 0, 255);
-    rect(35/5+ eyex +x, 30/5 + eyey + y, 10/5, 10/5);
-    rect(65/5 + eyex + x, 30/5 + eyey + y, 10/5, 10/5);
+    red.fill(0, 0, 255);
+    red.rect(35/5+ eyex +x, 30/5 + eyey + y, 10/5, 10/5);
+    red.rect(65/5 + eyex + x, 30/5 + eyey + y, 10/5, 10/5);
     if(maze2[y/27 - 1].charAt(x/27) == '@'){
       y -=1;
     }else if(maze2[y/27 + 1].charAt(x/27) == '@'){
@@ -86,5 +88,7 @@ void draw() {
     }else if(maze2[y/27].charAt(x/27 - 1) == '@'){
       y-= 1;
     }
+    red.endDraw();
+    image(red, 0, 0);
   }
 }
