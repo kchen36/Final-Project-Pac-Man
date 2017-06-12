@@ -6,26 +6,30 @@ int eyey = 0;
 int c = color(255,0,0);
 int header = 1;
 MazeSolver a;
-String [] maze2;
+String[] maze2 = new String[31];
 String[] maze;
 PGraphics red;
+ 
  public ghostred(int xPos, int yPos, String[] m){
    x = xPos;
    y = yPos;
    maze = m;
-   maze2 = m;
  }
+ 
+  
  public void getpath(Location e){
-   maze2 = maze;
+   for (int i = 0; i<31; i++){
+     maze2[i] = maze[i];
+   }
    int d = Math.abs(e.getr() -(y- 113)/27) + Math.abs(e.getc() - (x - 113)/27);
    Location s = new Location((y- 113)/27,(x - 113)/27,null,0,d);
    a = new MazeSolver(maze2,e,s);
    a.solve();
    maze2 = a.ans();
-   for(int z = 0; z < 31; z++){
+   /*for(int z = 0; z < 31; z++){
      System.out.println(maze2[z]);
    }
-   System.out.println("\n");
+   System.out.println("\n");*/
  }
 void setup() {
   red = createGraphics(1000,1000);
@@ -37,32 +41,32 @@ void draw() {
   red.clear();
   red.noStroke();
   red.fill(255,0,0);
-    red.rect(25/5+x,35/5+y,5/5,45/5);
-    red.rect(30/5+x,20/5+y,5/5,65/5);
-    red.rect(35/5+x,15/5+y,5/5,70/5);
-    red.rect(40/5+x,10/5+y,5,70/5);
-    red.rect(45/5+x,10/5+y,5/5,65/5);
-    red.rect(50/5+x,5/5+y,5/5,75/5);
-    red.rect(55/5+x,5/5+y,5/5,80/5);
-    red.rect(60/5+x,5/5+y,5/5,80/5);
-    red.rect(65/5+x,5/5+y,5/5,75/5);
-    red.rect(70/5+x,10/5+y,5/5,65/5);
-    red.rect(75/5+x,10/5+y,5/5,70/5);
-    red.rect(80/5+x,15/5+y,5/5,70/5);
-    red.rect(85/5+x,20/5+y,5/5,65/5);
-    red.rect(90/5+x,35/5+y,5/5,45/5);
+    red.rect(-6+x,-1+y,1,9);
+    red.rect(-5+x,-4+y,1,13);
+    red.rect(-4+x,-5+y,1,14);
+    red.rect(-3+x,-6+y,1,14);
+    red.rect(-2+x,-6+y,1,13);
+    red.rect(-1+x,-7+y,1,15);
+    red.rect(0+x,-7+y,1,16);
+    red.rect(1+x,-7+y,1,16);
+    red.rect(2+x,-7+y,1,15);
+    red.rect(3+x,-6+y,1,13);
+    red.rect(4+x,-6+y,1,14);
+    red.rect(5+x,-5+y,1,14);
+    red.rect(6+x,-4+y,1,13);
+    red.rect(7+x,-1+y,1,9);
        
     //left eye
     red.fill(255);
-    red.rect(30/5+x, 25/5+y, 5/5, 15/5);
-    red.rect(35/5+x, 20/5+y, 5/5, 25/5);
-    red.rect(40/5+x, 20/5+y, 5/5, 25/5);
-    red.rect(45/5+x, 25/5+y, 5/5, 15/5);
+    red.rect(-5+x, -3+y, 1, 3);
+    red.rect(-4+x, -4+y, 1, 5);
+    red.rect(-3+x, -4+y, 1, 5);
+    red.rect(-2+x, -3+y, 1, 3);
     //right eye
-    red.rect(60/5+x, 25/5+y, 5/5, 15/5);
-    red.rect(65/5+x, 20/5+y, 5/5, 25/5);
-    red.rect(70/5+x, 20/5+y, 5/5, 25/5);
-    red.rect(75/5+x, 25/5+y, 5/5, 15/5);
+    red.rect(1+x, -3+y, 1, 3);
+    red.rect(2+x, -4+y, 1, 5);
+    red.rect(3+x, -4+y, 1, 5);
+    red.rect(4+x, -3+y, 1, 3);
     //pupils
     if(header == 0){
       eyex = 1;
@@ -81,16 +85,24 @@ void draw() {
       eyey = 1;
     }
     red.fill(0, 0, 255);
-    red.rect(35/5+ eyex +x, 30/5 + eyey + y, 10/5, 10/5);
-    red.rect(65/5 + eyex + x, 30/5 + eyey + y, 10/5, 10/5);
+    red.rect(-4+ eyex +x, -2 + eyey + y, 2, 2);
+    red.rect(2 + eyex + x, -2 + eyey + y, 2, 2);
     if(maze2[(y-113)/27 - 1].charAt((x-113)/27) == '@'){
+      red.fill(0);
+      red.rect(x - 6, y + 10, 14, 17);
       y -=3;
     }else if(maze2[(y-113)/27 + 1].charAt((x-113)/27) == '@'){
+      red.fill(0);
+      red.rect(x - 6, y - 23, 14, 17);
       y+= 3;
     }else if(maze2[(y-113)/27].charAt((x-113)/27 + 1) == '@'){
+      red.fill(0);
+      red.rect(x - 19, y - 7, 14, 17);
       x+= 3;
     }else if(maze2[(y-113)/27].charAt((x-113)/27 - 1) == '@'){
-      y-= 3;
+      red.fill(0);
+      red.rect(x + 6, y - 7, 14, 17);
+      x-= 3;
     }
     red.endDraw();
     image(red, 0, 0);
