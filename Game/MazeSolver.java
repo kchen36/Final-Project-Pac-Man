@@ -33,7 +33,7 @@ public class MazeSolver{
     }
     private boolean inBound(int r, int c){
 	if(r >= 1 && c >= 1 && r < row - 1 && c < col - 1 && board[r].charAt(c) != '#'){
-	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*' || board[r].charAt(c) ==' ';
+	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*' || board[r].charAt(c) ==' ' || board[r].charAt(c) == '_' || board[r].charAt(c) == '=';
 	}
 	return false;
     }
@@ -55,9 +55,6 @@ public class MazeSolver{
 	    int r = l.getr();
 	    int c = l.getc();
 	    set(r,c,'a');
-    for(int x = 0; x < 31;x ++){
-      System.out.println(board[x]);
-    }
 	    if(inBound(r - 1, c)){
 		if(r - 1 == er && c == ec){
         set(r-1,c,'@');

@@ -16,7 +16,7 @@ import java.io.*;
                    "######.##          ##.######",
                    "######.## ######## ##.######",
                    "######.## #      # ##.######",
-                   "      .   #      #   .      ",
+                   "#     .   #      #   .     #",
                    "######.## #      # ##.######",
                    "######.## ######## ##.######",
                    "######.##          ##.######",
@@ -34,16 +34,46 @@ import java.io.*;
                    "#..........................#",
                    "############################"};
                    
-String[] copy = Maze;
+String[] copy =   {"############################",
+                   "#............##............#",
+                   "#.####.#####.##.#####.####.#",
+                   "#*####.#####.##.#####.####*#",
+                   "#.####.#####.##.#####.####.#",
+                   "#..........................#",
+                   "#.####.##.########.##.####.#",
+                   "#.####.##.########.##.####.#",
+                   "#......##....##....##......#",
+                   "######.##### ## #####.######",
+                   "######.##### ## #####.######",
+                   "######.##          ##.######",
+                   "######.## ######## ##.######",
+                   "######.## #      # ##.######",
+                   "#     .   #      #   .     #",
+                   "######.## #      # ##.######",
+                   "######.## ######## ##.######",
+                   "######.##          ##.######",
+                   "######.## ######## ##.######",
+                   "######.## ######## ##.######",
+                   "#............##............#",
+                   "#.####.#####.##.#####.####.#",
+                   "#.####.#####.##.#####.####.#",
+                   "#*..##.......  .......##..*#",
+                   "###.##.##.########.##.##.###",
+                   "###.##.##.########.##.##.###",
+                   "#......##....##....##......#",
+                   "#.##########.##.##########.#",
+                   "#.##########.##.##########.#",
+                   "#..........................#",
+                   "############################"};
 int ppeaten;
 int eaten;
 int score = 0;
-ghostred red = new ghostred(477,735,Maze);
+
 pacman pac = new pacman(500, 735,Maze);
-ghostred Blinky = new ghostred(425, 400,Maze);
-ghostpink Pinky = new ghostpink(450, 400, Maze);
-ghostblue Inky = new ghostblue(475, 400, Maze);
-ghostorange Clyde = new ghostorange(500 , 400, Maze);
+ghostred Blinky = new ghostred(410, 410,Maze);
+ghostpink Pinky = new ghostpink(450, 491, Maze);
+ghostblue Inky = new ghostblue(477, 491, Maze);
+ghostorange Clyde = new ghostorange(504, 491, Maze);
 
 void setup(){
   size(1000, 1000);
@@ -76,7 +106,7 @@ void setup(){
   Inky.setup();
   Clyde.setup();
 }
-
+ int counter =0;
   void draw(){
      stroke(0);
      fill(0);
@@ -125,22 +155,35 @@ void setup(){
      noStroke();
      pac.draw();
 
-     if(counter % 9 == 0){
+     
        Location e = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
+       if (counter % 9 == 0){
        Blinky.getpath(e);
-<<<<<<< HEAD
-       Clyde.getpath(e);
-     }
-=======
->>>>>>> origin/branch
-     Blinky.draw();
+       }
+     
+
+     Blinky.draw(counter);
      Pinky.draw();
      Inky.draw();
      Clyde.draw();
+     counter ++;
      score = (eaten * 10) + (ppeaten * 50);
      fill(255);
      textSize(32);
      text("Score:" + Integer.toString(score), 600, 80);
+     if ((Math.abs(((pac.xPos - 113) / 27) - ((Blinky.x - 113) / 27))) == 1 && (Math.abs(((pac.yPos - 113) / 27) - ((Blinky.y - 113) / 27))) == 1){
+       GameOver();
+       noLoop();
+     }
+  }
+  
+  void GameOver(){
+    background(0);
+    fill(255);
+    textSize(100);
+    text("GAME OVER!!!", 200, 300);
+    text("Your Final Score Was:" + Integer.toString(score), 0, 500);
+    text(Integer.toString(score), 450, 700);
   }
   
   void keyPressed(){
