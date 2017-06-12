@@ -35,6 +35,7 @@ import java.io.*;
                    "############################"};
                    
 String[] copy = Maze;
+ghostred red = new ghostred(477,735,Maze);
 pacman pac = new pacman(500, 735,Maze);
 ghostred Blinky = new ghostred(425, 400,Maze);
 ghostpink Pinky = new ghostpink(450, 400, Maze);
