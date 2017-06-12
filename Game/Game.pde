@@ -36,10 +36,10 @@ import java.io.*;
                    
 String[] copy = Maze;
 pacman pac = new pacman(500, 735,Maze);
-ghostred Blinky = new ghostred(425 + 113, 400 + 113,Maze);
-ghostpink Pinky = new ghostpink(450 + 113, 400  +113, Maze);
-ghostblue Inky = new ghostblue(475 + 113, 400  +113, Maze);
-ghostorange Clyde = new ghostorange(500 + 113, 400  +113, Maze);
+ghostred Blinky = new ghostred(425, 400,Maze);
+ghostpink Pinky = new ghostpink(450, 400, Maze);
+ghostblue Inky = new ghostblue(475, 400, Maze);
+ghostorange Clyde = new ghostorange(500 , 400, Maze);
 
 void setup(){
   size(1000, 1000);
