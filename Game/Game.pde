@@ -43,7 +43,7 @@ pacman pac = new pacman(500, 735,Maze);
 ghostred Blinky = new ghostred(425, 400,Maze);
 ghostpink Pinky = new ghostpink(450, 400, Maze);
 ghostblue Inky = new ghostblue(475, 400, Maze);
-ghostorange Clyde = new ghostorange(500, 400, Maze);
+ghostorange Clyde = new ghostorange(500 , 400, Maze);
 
 void setup(){
   size(1000, 1000);
@@ -124,6 +124,10 @@ void setup(){
      fill(255,255,0);
      noStroke();
      pac.draw();
+
+     if(counter % 9 == 0){
+       Location e = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
+       Blinky.getpath(e);
      Blinky.draw();
      Pinky.draw();
      Inky.draw();
