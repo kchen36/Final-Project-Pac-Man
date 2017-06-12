@@ -8,7 +8,7 @@ Bugs
 -Staying stuck int the wall may screw up A* and crash the program
 
 Instructions
--No lives, one ghost, no Power in the pellets stay outside the walls, good luck!
+-1 life, one ghost, no Power in the pellets stay outside the walls, good luck!
 
 DevLog
 
