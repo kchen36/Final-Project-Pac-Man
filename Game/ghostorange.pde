@@ -16,14 +16,14 @@ PGraphics orange;
  }
  public void getpath(Location e){
    maze2 = maze;
-   int d = Math.abs(e.getr() -y/27) + Math.abs(e.getc() - x/27);
+   int d = Math.abs(e.getr() -(y-113)/27) + Math.abs(e.getc() - (x-113)/27);
    if(d < 8){
-     d = Math.abs(30 -y/27) + Math.abs(27 - x/27);
-     Location s = new Location(y/27,x/27,null,0,d);
+      d = Math.abs(30 -(y-113)/27) + Math.abs(27 - (x-113)/27);
+     Location s = new Location((y-113)/27,(x-113)/27,null,0,d);
      Location end = new Location (30,27,null,0,0);
      a = new MazeSolver(maze2,end,s);
    }else{
-     Location s = new Location(y/27,x/27,null,0,d);
+     Location s = new Location((y-113)/27,(x-113)/27,null,0,d);
      a = new MazeSolver(maze2,e,s);
    }
    a.solve();
@@ -86,13 +86,13 @@ void setup() {
     orange.fill(0, 0, 255);
     orange.rect(35/5+ eyex +x, 30/5 + eyey + y, 10/5, 10/5);
     orange.rect(65/5 + eyex + x, 30/5 + eyey + y, 10/5, 10/5);
-    if(maze2[y/27 - 1].charAt(x/27) == '@'){
+    if(maze2[(y-113)/27 - 1].charAt((x-113)/27) == '@'){
       y -=1;
-    }else if(maze2[y/27 + 1].charAt(x/27) == '@'){
+    }else if(maze2[(y-113)/27 + 1].charAt((x-113)/27) == '@'){
       y+= 1;
-    }else if(maze2[y/27].charAt(x/27 + 1) == '@'){
+    }else if(maze2[(y-113)/27].charAt((x-113)/27 + 1) == '@'){
       x+= 1;
-    }else if(maze2[y/27].charAt(x/27 - 1) == '@'){
+    }else if(maze2[(y-113)/27].charAt((x-113)/27 - 1) == '@'){
       y-= 1;
     }
     orange.endDraw();

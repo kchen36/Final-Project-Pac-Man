@@ -128,6 +128,11 @@ void setup(){
      if(counter % 9 == 0){
        Location e = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
        Blinky.getpath(e);
+<<<<<<< HEAD
+       Clyde.getpath(e);
+     }
+=======
+>>>>>>> origin/branch
      Blinky.draw();
      Pinky.draw();
      Inky.draw();
