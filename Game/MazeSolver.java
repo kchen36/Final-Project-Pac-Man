@@ -33,7 +33,7 @@ public class MazeSolver{
     }
     private boolean inBound(int r, int c){
 	if(r >= 1 && c >= 1 && r < row - 1 && c < col - 1 && board[r].charAt(c) != '#'){
-	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*' || board[r].charAt(c) ==' ';
+	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*' || board[r].charAt(c) ==' ' || board[r].charAt(c) == '_' || board[r].charAt(c) == '=';
 	}
 	return false;
     }
