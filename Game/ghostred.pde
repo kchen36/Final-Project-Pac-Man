@@ -87,7 +87,10 @@ void draw(int counter) {
     red.fill(0, 0, 255);
     red.rect(-4+ eyex +x, -2 + eyey + y, 2, 2);
     red.rect(2 + eyex + x, -2 + eyey + y, 2, 2);
+<<<<<<< HEAD
     if(counter % 9 == 0){
+=======
+>>>>>>> origin/branch
     if(maze2[(y-113)/27 - 1].charAt((x-113)/27) == '@'){
       red.fill(0);
       red.rect(x - 6, y + 10, 14, 17);
@@ -107,6 +110,7 @@ void draw(int counter) {
       red.fill(0);
       red.rect(x + 6, y - 7, 14, 17);
       x-= 3;
+<<<<<<< HEAD
       direction = 2;
     }
     }
@@ -128,6 +132,8 @@ void draw(int counter) {
       red.fill(0);
       red.rect(x - 6, y - 23, 14, 17);
       y +=3;
+=======
+>>>>>>> origin/branch
     }
     red.endDraw();
     image(red, 0, 0);
