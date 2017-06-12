@@ -107,6 +107,7 @@ int counter = 0;
      if(counter % 9 == 0){
        Location e = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
        Blinky.getpath(e);
+       Clyde.getpath(e);
      }
      Blinky.draw();
      Pinky.draw();
