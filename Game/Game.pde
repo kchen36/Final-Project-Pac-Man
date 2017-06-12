@@ -37,9 +37,9 @@ import java.io.*;
 String[] copy = Maze;
 pacman pac = new pacman(500, 735,Maze);
 ghostred Blinky = new ghostred(425 + 113, 400 + 113,Maze);
-ghostpink Pinky = new ghostpink(450, 400, Maze);
-ghostblue Inky = new ghostblue(475, 400, Maze);
-ghostorange Clyde = new ghostorange(500, 400, Maze);
+ghostpink Pinky = new ghostpink(450 + 113, 400  +113, Maze);
+ghostblue Inky = new ghostblue(475 + 113, 400  +113, Maze);
+ghostorange Clyde = new ghostorange(500 + 113, 400  +113, Maze);
 
 void setup(){
   size(1000, 1000);
@@ -105,9 +105,7 @@ int counter = 0;
      noStroke();
      pac.draw();
      if(counter % 9 == 0){
-       Location e = new Location((pac.yPos-113)/27,(pac.yPos-113)/27,null,0,0);
-       System.out.println((pac.yPos-113)/27);
-       System.out.println((pac.xPos-113)/27);
+       Location e = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
        Blinky.getpath(e);
      }
      Blinky.draw();

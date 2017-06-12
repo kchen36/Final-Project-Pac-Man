@@ -32,7 +32,7 @@ public class MazeSolver{
 	board[r] = s.substring(0,c) + a + s.substring(c + 1);
     }
     private boolean inBound(int r, int c){
-	if(r >= 1 && c >= 1 && r < row - 1 && c < col - 1 && board[r].charAt(c) == '#'){
+	if(r >= 1 && c >= 1 && r < row - 1 && c < col - 1 && board[r].charAt(c) != '#'){
 	    return board[r].charAt(c) == '.' || board[r].charAt(c) =='*' || board[r].charAt(c) ==' ';
 	}
 	return false;
@@ -54,9 +54,13 @@ public class MazeSolver{
 	    Location l = f.next();
 	    int r = l.getr();
 	    int c = l.getc();
-	    set(r,c,'-');
+	    set(r,c,'a');
+    for(int x = 0; x < 31;x ++){
+      System.out.println(board[x]);
+    }
 	    if(inBound(r - 1, c)){
 		if(r - 1 == er && c == ec){
+        set(r-1,c,'@');
 		    back(l);
 		    break;
 		}
@@ -69,6 +73,7 @@ public class MazeSolver{
 	    }
 	    if(inBound(r, c - 1)){
 		if(r == er && c - 1 == ec){
+  set(r-1,c,'@');
 		    back(l);
 		    break;
 		}
@@ -81,6 +86,7 @@ public class MazeSolver{
 	    }
 	    if(inBound(r + 1, c)){
 		if(r + 1 == er && c == ec){
+  set(r-1,c,'@');
 		    back(l);
 		    break;
 		}
@@ -93,6 +99,7 @@ public class MazeSolver{
 	    }
 	    if(inBound(r, c + 1)){
 		if(r == er && c + 1 == ec){
+  set(r-1,c,'@');
 		    back(l);
 		    break;
 		}
