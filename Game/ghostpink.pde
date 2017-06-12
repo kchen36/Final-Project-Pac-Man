@@ -14,6 +14,10 @@ PGraphics pink;
    maze = m;
    maze2 = m;
  }
+ public void setv(int xPos, int yPos){
+   x = xPos;
+   y = yPos;
+ }
  public void getpath(Location e){
    maze2 = maze;
    int d = Math.abs(e.getr() -y/27) + Math.abs(e.getc() - x/27);
@@ -25,8 +29,8 @@ PGraphics pink;
 void setup() {
   pink = createGraphics(1000, 1000);
 }
- 
-  void draw() {
+ int direction = 0;
+  void draw(int counter) {
     pink.beginDraw();
     pink.background(0);
     pink.clear();
@@ -79,15 +83,49 @@ void setup() {
     pink.fill(0, 0, 255);
     pink.rect(-4+ eyex +x, -2 + eyey + y, 2, 2);
     pink.rect(2 + eyex + x, -2 + eyey + y, 2, 2);
-    if(maze2[y/27 - 1].charAt(x/27) == '@'){
-      y -=1;
-    }else if(maze2[y/27 + 1].charAt(x/27) == '@'){
-      y+= 1;
-    }else if(maze2[y/27].charAt(x/27 + 1) == '@'){
-      x+= 1;
-    }else if(maze2[y/27].charAt(x/27 - 1) == '@'){
-      y-= 1;
+    if(counter >=1620){
+    if(counter % 9 == 0){
+    if(maze2[(y-113)/27 - 1].charAt((x-113)/27) == '@'){
+      pink.fill(0);
+      pink.rect(x - 6, y + 10, 14, 17);
+      y -=3;
+      direction = 1;
+    }else if(maze2[(y-113)/27 + 1].charAt((x-113)/27) == '@'){
+      pink.fill(0);
+      pink.rect(x - 6, y - 23, 14, 17);
+      y+= 3;
+      direction = 3;
+    }else if(maze2[(y-113)/27].charAt((x-113)/27 + 1) == '@'){
+      pink.fill(0);
+      pink.rect(x - 19, y - 7, 14, 17);
+      x+= 3;
+      direction = 0;
+    }else if(maze2[(y-113)/27].charAt((x-113)/27 - 1) == '@'){
+      pink.fill(0);
+      pink.rect(x + 6, y - 7, 14, 17);
+      x-= 3;
+      direction = 2;
     }
+    }
+    else if (direction == 0){
+      pink.fill(0);
+      pink.rect(x - 19, y - 7, 14, 17);
+      x+= 3;
+    }
+    else if(direction == 1){
+      pink.fill(0);
+      pink.rect(x - 6, y + 10, 14, 17);
+      y -=3;
+    }
+    else if(direction == 2){
+      pink.fill(0);
+      pink.rect(x + 6, y - 7, 14, 17);
+      x-= 3;
+    }else if(direction == 3){
+      pink.fill(0);
+      pink.rect(x - 6, y - 23, 14, 17);
+      y +=3;
+    }}
     pink.endDraw();
     image(pink, 0, 0);
   }

@@ -14,6 +14,10 @@ PGraphics orange;
    maze = m;
    maze2 = m;
  }
+ public void setv(int xPos, int yPos){
+   x = xPos;
+   y = yPos;
+ }
  public void getpath(Location e){
    maze2 = maze;
    int d = Math.abs(e.getr() -(y-113)/27) + Math.abs(e.getc() - (x-113)/27);
@@ -32,8 +36,8 @@ PGraphics orange;
 void setup() {
   orange = createGraphics(1000, 1000);
 }
- 
-  void draw() {
+ int direction = 0;
+  void draw(int counter) {
     orange.beginDraw();
     orange.background(0);
     orange.clear();
@@ -86,14 +90,49 @@ void setup() {
     orange.fill(0, 0, 255);
     orange.rect(-4+ eyex +x, -2 + eyey + y, 2, 2);
     orange.rect(2 + eyex + x, -2 + eyey + y, 2, 2);
+    if(counter >= 540){
+    if(counter % 9 == 0){
     if(maze2[(y-113)/27 - 1].charAt((x-113)/27) == '@'){
-      y -=1;
+      orange.fill(0);
+      orange.rect(x - 6, y + 10, 14, 17);
+      y -=3;
+      direction = 1;
     }else if(maze2[(y-113)/27 + 1].charAt((x-113)/27) == '@'){
-      y+= 1;
+      orange.fill(0);
+      orange.rect(x - 6, y - 23, 14, 17);
+      y+= 3;
+      direction = 3;
     }else if(maze2[(y-113)/27].charAt((x-113)/27 + 1) == '@'){
-      x+= 1;
+      orange.fill(0);
+      orange.rect(x - 19, y - 7, 14, 17);
+      x+= 3;
+      direction = 0;
     }else if(maze2[(y-113)/27].charAt((x-113)/27 - 1) == '@'){
-      y-= 1;
+      orange.fill(0);
+      orange.rect(x + 6, y - 7, 14, 17);
+      x-= 3;
+      direction = 2;
+    }
+    }
+    else if (direction == 0){
+      orange.fill(0);
+      orange.rect(x - 19, y - 7, 14, 17);
+      x+= 3;
+    }
+    else if(direction == 1){
+     orange.fill(0);
+      orange.rect(x - 6, y + 10, 14, 17);
+      y -=3;
+    }
+    else if(direction == 2){
+      orange.fill(0);
+      orange.rect(x + 6, y - 7, 14, 17);
+      x-= 3;
+    }else if(direction == 3){
+      orange.fill(0);
+      orange.rect(x - 6, y - 23, 14, 17);
+      y +=3;
+    }
     }
     orange.endDraw();
     image(orange, 0, 0);

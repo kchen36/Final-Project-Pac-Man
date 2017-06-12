@@ -74,6 +74,9 @@ ghostred Blinky = new ghostred(410, 410,Maze);
 ghostpink Pinky = new ghostpink(450, 491, Maze);
 ghostblue Inky = new ghostblue(477, 491, Maze);
 ghostorange Clyde = new ghostorange(504, 491, Maze);
+boolean pout =false;
+boolean oout =false;
+boolean bout =false;
 
 void setup(){
   size(1000, 1000);
@@ -160,12 +163,52 @@ void setup(){
        if (counter % 9 == 0){
        Blinky.getpath(e);
        }
-     
+       if(counter >= 540){
+         if(bout ==false){
+           Clyde.setv(437, 410);
+           bout=true;
+         }
+       Location e1 = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
+       if (counter % 9 == 0){
+       Clyde.getpath(e1);
+         }
+        }  
+        if(counter >=1080){
+          if(pout ==false){
+           Pinky.setv(437, 410);
+           pout=true;
+         }
+         Location e3;
+         e3 = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
+         if((pac.yPos-113)/27 +2 < 30){
+       if(Maze[(pac.yPos-113)/27 +2].charAt((pac.xPos-113)/27) !='#'){
+       e3 = new Location((pac.yPos-113)/27 -2,(pac.xPos-113)/27,null,0,0);
+       }}
+       if (counter % 9 == 0){
+       Pinky.getpath(e3);
+       }
+        }
+        Location e2;
+        if(counter >= 1620){
+          if(oout ==false){
+           Inky.setv(437, 410);
+           oout = true;
+         }
+         e2 = new Location((pac.yPos-113)/27,(pac.xPos-113)/27,null,0,0);
+         if((pac.yPos-113)/27 -2 >1){
+       if(Maze[(pac.yPos-113)/27 -2].charAt((pac.xPos-113)/27) !='#'){
+       e2 = new Location((pac.yPos-113)/27 -2,(pac.xPos-113)/27,null,0,0);
+       }}
+       if (counter % 9 == 0){
+       Inky.getpath(e2);
+       }
+        }
 
      Blinky.draw(counter);
-     Pinky.draw();
-     Inky.draw();
-     Clyde.draw();
+     
+     Pinky.draw(counter);
+     Inky.draw(counter);
+     Clyde.draw(counter);
      counter ++;
      score = (eaten * 10) + (ppeaten * 50);
      fill(255);
