@@ -16,12 +16,16 @@ PGraphics red;
    maze2 = m;
  }
  public void getpath(Location e){
-   maze2=maze;
+   maze2 = maze;
    int d = Math.abs(e.getr() -y/27) + Math.abs(e.getc() - x/27);
    Location s = new Location(y/27,x/27,null,0,d);
    a = new MazeSolver(maze2,e,s);
    a.solve();
    maze2 = a.ans();
+   for(int x = 0; x < 31; x++){
+     System.out.println(maze2[x]);
+   }
+   System.out.println("\n");
  }
 void setup() {
   red = createGraphics(1000,1000);

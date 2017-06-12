@@ -31,7 +31,7 @@ public class FrontierPriorityQueue{
     private void pushUp(){
 	Location x = ary[size];
 	for(int i = size; i > 1; i/=2){
-	    if(ary[i/2].compareTo(ary[i]) * constant > 0){
+	    if(ary[i/2].compareTo(ary[i]) * constant < 0){
 		ary[i] = ary[i/2];
 		ary[i/2] = x;
 	    }
@@ -53,7 +53,7 @@ public class FrontierPriorityQueue{
 	    Location bigger;
 	    int dir;
 	    if(x * 2 < size){
-		if(ary[x * 2].compareTo(ary[x * 2 + 1]) * constant < 0){
+		if(ary[x * 2].compareTo(ary[x * 2 + 1]) * constant > 0){
 		    bigger = ary[x * 2];
 		    dir = 0;
 		}
@@ -61,14 +61,14 @@ public class FrontierPriorityQueue{
 		    bigger = ary[x * 2 + 1];
 		    dir = 1;
 		}
-		if(ary[x * 2 + dir].compareTo(ary[x]) * constant < 0){
+		if(ary[x * 2 + dir].compareTo(ary[x]) * constant > 0){
 		    ary[x] = ary[x * 2 + dir];
 		    ary[x * 2 + dir] = val;
 		    x = x * 2 + dir;
 		}
 		else break;
 	    }
-	    else if(x* 2 <= size && ary[x * 2].compareTo(ary[x]) * constant < 0){
+	    else if(x* 2 <= size && ary[x * 2].compareTo(ary[x]) * constant > 0){
 		ary[x] = ary[x * 2];
 		ary[x * 2] = val;
 		x = x * 2;
